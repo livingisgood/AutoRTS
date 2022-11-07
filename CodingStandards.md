@@ -12,10 +12,10 @@
 
   ```
   std::map<int, int> TestMap;
-  auto It = TestMap::find(3);		//正确, 右边表达式返回右值
-  auto& It = TestMap::find(3);    //不正确, 右值绑定到左值, 但msvc下依然可以编译通过
+  auto It = TestMap::find(3);	//正确, 右边表达式返回右值
+  auto& It = TestMap::find(3);	//不正确, 右值绑定到左值, 但msvc下依然可以编译通过
   auto&& It = TestMap::find(3);   //正确, 万能引用
-  const auto& It = TestMap::find(3);  //正确, 右值可以绑定到常量引用
+  const auto& It = TestMap::find(3);	//正确, 右值可以绑定到常量引用
   ```
 
 * 能使用 c++ static_cast 代替c语言强转的地方, 一律使用static_cast.
@@ -30,6 +30,7 @@
 #### 推荐
 
 * 使用using代替typedef, using具备适配模板的能力
+* 头文件include保护推荐使用 pragma once, 头文件改名时无需改动, 无需担心同名头文件
 
 
 
